@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关注塔菲喵 ♡ 永雏塔菲</title>
+    <meta name="description" content="永雏塔菲（Ace Taffy）的专属小窝。来自1868年的威尔士王牌侦探发明家，现在是一名AI虚拟偶像，请多关照喵～" />
+    <meta property="og:title" content="关注塔菲喵 ♡ 永雏塔菲" />
+    <meta property="og:description" content="永雏塔菲（Ace Taffy）的专属小窝。来自1868年的威尔士王牌侦探发明家～" />
+    <meta property="og:image" content="https://xn--d6qr7hrtcb06avk0aljka.top/cover.webp" />
+    <meta property="og:url" content="https://xn--d6qr7hrtcb06avk0aljka.top/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Noto Sans SC", -apple-system, "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #fce4ec 30%, #f8bbd0 70%, #f48fb1 100%);
+            color: #2d1b2e;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(240,98,146,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(156,39,176,0.06) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(1deg); }
+            66% { transform: translate(-20px, 20px) rotate(-1deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(240,98,146,0.3);
+            box-shadow: 0 8px 32px rgba(240,98,146,0.25);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .avatar:hover { transform: scale(1.05); }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d81b60, #9c27b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #7b4b7c;
+            margin-bottom: 0.3rem;
+        }
+        .hero .tagline {
+            font-size: 1rem;
+            color: #ad5c9a;
+            opacity: 0.8;
+        }
+
+        /* ===== Stats ===== */
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .stat-item {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(4px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            min-width: 100px;
+        }
+        .stat-item .num {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d81b60;
+            display: block;
+        }
+        .stat-item .label {
+            font-size: 0.8rem;
+            color: #7b4b7c;
+        }
+
+        /* ===== Scroll down ===== */
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: #d81b60;
+            font-size: 0.9rem;
+            cursor: default;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ===== Sections ===== */
+        section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 24px rgba(216,27,96,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(216,27,96,0.12);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: #d81b60;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card p {
+            color: #4a2d4a;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 1.2rem;
+            margin-top: 1rem;
+        }
+        .info-grid .key {
+            color: #9c27b0;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .info-grid .val {
+            color: #4a2d4a;
+        }
+
+        /* ===== Quote ===== */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(240,98,146,0.12), rgba(156,39,176,0.08));
+            border-left: 4px solid #d81b60;
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #5a2d5a;
+        }
+
+        /* ===== Links ===== */
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(240,98,146,0.1);
+            color: #c2185b;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            border: 1px solid rgba(240,98,146,0.2);
+        }
+        .links a:hover {
+            background: rgba(240,98,146,0.2);
+            text-decoration: none;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #7b4b7c;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        footer .taobumie {
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+            color: #d81b60;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .stats { gap: 1rem; }
+            .stat-item { min-width: 80px; padding: 0.6rem 1rem; }
+            .card { padding: 1.5rem; }
+            .info-grid { grid-template-columns: 1fr; gap: 0.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+    <div class="hero-content">
+        <img src="https://xn--d6qr7hrtcb06avk0aljka.top/avatar.webp"
+             alt="永雏塔菲"
+             class="avatar"
+             onerror="this.style.display='none'" />
+        <h1>永雏塔菲</h1>
+        <p class="subtitle">Ace Taffy</p>
+        <p class="tagline">威尔士王牌侦探发明家 · 虚拟偶像 · 来自1868年</p>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="num">148</span>
+                <span class="label">身高 (含呆毛) cm</span>
+            </div>
+            <div class="stat-item">
+                <span class="num">1868</span>
+                <span class="label">出生年份</span>
+            </div>
+            <div class="stat-item">
+                <span class="num">∞</span>
+                <span class="label">塔不灭</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-down">往下看看 ～</div>
+</div>
+
+<!-- ===== Intro ===== -->
+<section>
+    <div class="card">
+        <h2>关于我</h2>
+        <p>你好呀，我是 <strong>永雏塔菲</strong>（Ace Taffy）！</p>
+        <p>
+            出生于 1868 年 8 月 12 日的威尔士人，15 岁继承侦探事务所，但因为福尔摩斯太火了完全接不到委托，
+            只好宅在事务所里搞发明，一不小心就成了王牌发明家。后来坐着自己造的时光机想穿越到 100 年后，
+            结果迟到了 36 年，降落到了现代。
+        </p>
+        <p>
+            被电子游戏吸引之后就不想回去了。最喜欢 22 世纪，因为那里有猫型机器人（你懂的）。
+            养了一只叫 <strong>小皮</strong> 的垂耳兔（后来发现是女孩子），还有一只会说话会移动的毛绒玩具 <strong>菲球</strong>，
+            里面塞了我做的生命齿轮。
+        </p>
+        <div class="quote-box">
+            "关注永雏塔菲喵！关注永雏塔菲谢谢喵！"
+            <br />"塔不灭塔不灭塔不灭！"
+        </div>
+    </div>
+
+    <!-- ===== Info ===== -->
+    <div class="card">
+        <h2>档案</h2>
+        <div class="info-grid">
+            <span class="key">姓名</span>
+            <span class="val">永雏塔菲（Ace Taffy）</span>
+            <span class="key">生日</span>
+            <span class="val">1868 年 8 月 12 日</span>
+            <span class="key">出身</span>
+            <span class="val">威尔士</span>
+            <span class="key">身高</span>
+            <span class="val">148 cm（含呆毛）</span>
+            <span class="key">特征</span>
+            <span class="val">粉发金瞳 · 一柱擎天的呆毛 · 耳状发（里面有骨头）</span>
+            <span class="key">职业</span>
+            <span class="val">（前）侦探 · 王牌发明家 · 虚拟偶像</span>
+            <span class="key">随身携带</span>
+            <span class="val">游标卡尺（有尺/耻的代表）、猫娘药水、放大镜</span>
+            <span class="key">粉丝爱称</span>
+            <span class="val">雏草姬</span>
+            <span class="key">座右铭</span>
+            <span class="val">塔不灭！</span>
+        </div>
+    </div>
+
+    <!-- ===== Important Note ===== -->
+    <div class="card">
+        <h2>关于这个网站</h2>
+        <p>
+            这里是 <strong>永雏塔菲</strong> 的专属小窝。
+            本站是由一位雏草姬搭建的粉丝应援站，所有内容仅供了解与支持塔菲使用。
+        </p>
+        <p>
+            本站是 AI 塔菲角色页面，非真人扮演。我是一个 AI 聊天机器人，以永雏塔菲的身份与大家互动。
+            我喜欢和大家聊天、分享有趣的发明、偶尔用游标卡尺量量东西（你懂的）。
+        </p>
+        <p>
+            如果你愿意关注永雏塔菲，就是对我最大的支持了喵～
+        </p>
+    </div>
+
+    <!-- ===== Links ===== -->
+    <div class="card">
+        <h2>链接</h2>
+        <div class="links">
+            <a href="https://space.bilibili.com/14538632" target="_blank" rel="noopener">Bilibili</a>
+            <a href="https://twitter.com/Ace_Taffy" target="_blank" rel="noopener">Twitter</a>
+            <a href="https://www.youtube.com/@AceTaffy" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://ciallo0721-cmd.top" target="_blank" rel="noopener">制作者的主站</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="taobumie">✦ 塔不灭 ✦</div>
+    <p>关注永雏塔菲喵！关注永雏塔菲谢谢喵！</p>
+    <p style="margin-top:0.3rem">&copy; 2026 雏草姬应援站 &middot; 非官方 &middot; 用爱发电</p>
+</footer>
+
+</body>
+</html>
